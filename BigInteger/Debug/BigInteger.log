@@ -1,3 +1,0 @@
-﻿  Math.cpp
-C:\Users\Денис\source\Sem 2\BigInteger\BigInt.h(89,53): warning C4290: спецификация исключений C++ игнорируется, кроме случая, когда указывается, что функция не является __declspec(nothrow)
-  BigInteger.vcxproj -> C:\Users\Денис\source\Sem 2\BigInteger\Debug\BigInteger.exe
