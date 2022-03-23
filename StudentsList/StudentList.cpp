@@ -1,7 +1,7 @@
 #include <cstdlib>
 #include <cstdio>
 #include <iostream>
-#include "StudentsList.h"
+#include "StudentsList.hpp"
 
 using namespace std;
 
@@ -119,7 +119,8 @@ void List::addStudent(const char* name, const char* surname, const char* group, 
 {
 	if (!this->root->isContain())
 	{
-		this->current->addStudent(name, surname, group, phone, age, marks);
+		//this->current->addStudent(name, surname, group, phone, age, marks);
+		this->root->addStudent(name, surname, group, phone, age, marks);
 	}
 	else
 	{
@@ -149,11 +150,14 @@ void List::printDynamicList(const char* surname)
 {
 	Node* ptr = root;
 
+	bool found = false;
+
 	int number = 1;
 	while (1)
 	{
 		if (ptr->isContain() && (strContain(surname, ptr->getStudent()->getSurname()) >= 0))
 		{
+			found = true;
 			cout << number << ") " << ends;
 			number++;
 			ptr->getStudent()->printConstructedInfo();
@@ -164,6 +168,10 @@ void List::printDynamicList(const char* surname)
 			break;
 		}
 		ptr = ptr->next;
+	}
+	if (!found)
+	{
+		cout << "Not found." << endl;
 	}
 }
 
@@ -236,11 +244,6 @@ void List::printList(float morethanmark)
 				cout << endl;
 			}
 		}
-		/*else
-		{
-			cout << "This position is clear." << endl;
-			cout << endl;
-		}*/
 		if (ptr->next == 0)
 		{
 			break;
@@ -270,6 +273,13 @@ void List::clearStudent(int id)
 		ptr = ptr->next;
 	}
 
+	if (ptr == 0)
+	{
+		throw WrongInputException("Exception: ID out of bounds.\n");
+		//cout << "Exception: Out of bounds." << endl;
+		return;
+	}
+
 	if (ptr->isContain())
 	{
 		cout << "Info about student " << ptr->getStudent()->getSurname() << " " << ptr->getStudent()->getName() << " was been cleared." << endl;
@@ -277,7 +287,7 @@ void List::clearStudent(int id)
 	}
 	else
 	{
-		cout << "\nStudent not founded." << endl;
+		cout << "\nStudent not found." << endl;
 	}
 }
 
@@ -317,7 +327,7 @@ void List::clearStudent(const char* surname, const char* group)
 		}
 		ptr = ptr->next;
 	}
-	cout << "\nStudent not founded." << endl;
+	cout << "\nStudent not found." << endl;
 }
 
 void List::deleteStudent(int id)
@@ -342,6 +352,13 @@ void List::deleteStudent(int id)
 		ptr = ptr->next;
 		rememberptr = ptr;
 	}
+
+	if (ptr == 0)
+	{
+		throw WrongInputException("Exception: ID out of bounds.\n");
+		//cout << "Exception: Out of bounds." << endl;
+		return;
+	}
 	
 	if (ptr->isContain())
 	{
@@ -350,7 +367,7 @@ void List::deleteStudent(int id)
 	}
 	else
 	{
-		cout << "\nStudent not founded." << endl;
+		cout << "\nStudent not found." << endl;
 		return;
 	}
 	ptr = root;
@@ -364,8 +381,13 @@ void List::deleteStudent(int id)
 		}
 		ptr = ptr->next;
 	}
+	if (!root->isContain())
+	{
+		Node* tmp = root;
+		this->root = tmp->next;
+		delete tmp;
+	}
 }
-
 
 void List::deleteStudent(const char* surname, const char* group)
 {
@@ -398,61 +420,24 @@ void List::deleteStudent(const char* surname, const char* group)
 		}
 		ptr = ptr->next;
 	}
+	if (!root->isContain())
+	{
+		Node* tmp = root;
+		this->root = tmp->next;
+		delete tmp;
+	}
 
 	if (!find)
 	{
-		cout << "\nStudent not founded." << endl;
+		cout << "\nStudent not found." << endl;
 	}
 }
-
-//void List::deleteStudent(float lessthanmark)
-//{
-//	Node* ptr = root;
-//	Node* rememberptr = root;
-//	Node* tmpptrtodelete = root;
-//	bool find = false;
-//
-//	while (ptr->next != 0)
-//	{
-//		if (ptr->isContain())
-//		{
-//			float sum = ptr->getStudent()->getMarks()[0] + ptr->getStudent()->getMarks()[1] + ptr->getStudent()->getMarks()[2] + ptr->getStudent()->getMarks()[3];
-//			if ((sum / 4) < lessthanmark)
-//			{
-//				rememberptr = ptr;
-//				cout << "Student " << ptr->getStudent()->getSurname() << " " << ptr->getStudent()->getName() << " was been deleted." << endl;
-//				ptr->deleteStudent();
-//				find = true;
-//
-//				tmpptrtodelete = root;
-//				while (tmpptrtodelete->next != 0)
-//				{
-//					if (tmpptrtodelete->next == rememberptr)
-//					{
-//						tmpptrtodelete->next = rememberptr->next;
-//						delete rememberptr;
-//						break;
-//					}
-//					tmpptrtodelete = tmpptrtodelete->next;
-//				}
-//				tmpptrtodelete = root;
-//			}
-//		}
-//		ptr = ptr->next;
-//	}
-//
-//	if (!find)
-//	{
-//		cout << "Students not fouded." << endl;
-//	}
-//}
 
 void List::deleteStudent(float lessthanmark)
 {
 	this->clearStudent(lessthanmark);
 	this->GarbageCollector();
 }
-
 
 void List::GarbageCollector()
 {
@@ -473,53 +458,13 @@ void List::GarbageCollector()
 		}
 		ptr = ptr->next;
 	}
+	if (!root->isContain())
+	{
+		Node* tmp = root;
+		this->root = tmp->next;
+		delete tmp;
+	}
 }
-
-//void List::GarbageCollector()
-//{
-//	Node* ptr = root;
-//
-//	//List* = new List();
-//
-//	while (ptr->next != 0)
-//	{
-//		if (!ptr->isContain())
-//		{
-//			Node* tmp = ptr->next;
-//			delete ptr;
-//			ptr = tmp;
-//			continue;
-//		}
-//		ptr = ptr->next;
-//	}
-//}
-
-//void List::GarbageCollector()
-//{
-//	Node* ptr = root;
-//
-//	//List* tmplist = new List();
-//	//Node* tmproot = tmplist->root;
-//
-//	Node* endptr = root;
-//
-//	while (endptr->next)
-//	{
-//		endptr = endptr->next;
-//	}
-//
-//	while (ptr->next != endptr)
-//	{
-//		if (!ptr->isContain())
-//		{
-//			Node* tmp = ptr;
-//			delete ptr;
-//			ptr = tmp->next;
-//			continue;
-//		}
-//		ptr = ptr->next;
-//	}
-//}
 
 
 
