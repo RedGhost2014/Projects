@@ -50,8 +50,8 @@ int main()
 	
 
 
-	BigInteger Int1 = "-123";
-	BigInteger Int2 = "-6";
+	BigInteger Int1 = "-123456";
+	BigInteger Int2 = "-132";
 
 	BigInteger test = Int1 + Int2;
 	test.printNumber();

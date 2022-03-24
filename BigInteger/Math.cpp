@@ -896,6 +896,21 @@ void BigInteger::divide(BigInteger& value)
 		delete thisabs;
 		return;
 	}
+	else if (value == "1")
+	{
+		answer = new BigInteger(*this);
+
+		delete[] this->charnumber;
+		delete[] this->number;
+
+		this->charlen = answer->charlen;
+		this->charnumber = answer->charnumber;
+		this->countOfDigits = answer->countOfDigits;
+		this->number = answer->number;
+		delete valueabs;
+		delete thisabs;
+		return;
+	}
 	else
 	{
 		BigInteger subtractValue = abs(value);
