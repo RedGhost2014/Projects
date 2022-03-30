@@ -223,8 +223,53 @@ void Observer::CommandAnalyzer(int currentHumanFloor = 0, int targetHumanFloor =
 		{
 			if (this->elevators[i]->move())
 			{
-				gotoxy((30 * i) + 3, this->elevators[i]->getCurrentFloor());
-				cout << "Elevator reach his target" << endl;
+				this->printElevators();
+				if (this->elevators[i]->isActive() < 0)
+				{
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "  @" << endl;
+					Sleep(1000);
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "                         " << endl;
+
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << " @" << endl;
+					Sleep(1000);
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "                         " << endl;
+
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "@" << endl;
+					Sleep(1000);
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "                         " << endl;
+
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "                         " << endl;
+				}
+				else if (this->elevators[i]->isActive() == 0)
+				{
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "@" << endl;
+					Sleep(1000);
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "                         " << endl;
+
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << " @" << endl;
+					Sleep(1000);
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "                         " << endl;
+
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "  @" << endl;
+					Sleep(1000);
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "                         " << endl;
+
+					gotoxy((30 * i) + 2, this->elevators[i]->getCurrentFloor());
+					cout << "                         " << endl;
+				}
 			}
 		}
 	}
