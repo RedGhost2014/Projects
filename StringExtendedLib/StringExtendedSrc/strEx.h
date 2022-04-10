@@ -5,7 +5,7 @@
 *                                                               *
 *   C/C++ String Extended Library made up by Fedrushkov Denis   *
 *                                                               *
-*   Version: 1.0												*
+*   Version: 1.0                                                *
 *                                                               *
 *   This library was made as way to upgrade quality of life     *
 *   when using strings as char arrays in C/C++.                 *
