@@ -485,11 +485,11 @@ namespace strEx
 		);
 
 		/*
-		*	Ñonverts source string to upper case.
+		*	Converts source string to upper case.
 		*
 		*	Parametres:
 		*
-		*		[in] strsource:
+		*		[in] strsrc:
 		*			Source string.
 		*
 		*	Returns a pointer to string in heap if execute was succesfull, else:
@@ -502,11 +502,11 @@ namespace strEx
 		);
 
 		/*
-		*	Ñonverts source string to lower case.
+		*	Converts source string to lower case.
 		*
 		*	Parametres:
 		*
-		*		[in] strsource:
+		*		[in] strsrc:
 		*			Source string.
 		*
 		*	Returns a pointer to string in heap if execute was succesfull, else:
