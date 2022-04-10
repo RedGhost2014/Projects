@@ -35,7 +35,7 @@
 	#define STREX_TYPE(_Type) _Type _cdecl 
 
 	#define STREX_THROW_EXCEPTION(_Type, _Text)	\
-				_ASSERT_EXPR(0, _Text);		    \
+				_ASSERT_EXPR(0, _Text);         \
 				_set_errno(_Type);              \
 				return _Type                    \
 
