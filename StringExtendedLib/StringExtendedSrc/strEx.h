@@ -128,7 +128,7 @@ namespace strEx
 		*	Parametres:
 		*		
 		*		[in] allocatedMemory: 
-		*			Size in bytes allocated to string.
+		*			Size in bytes allocating to string.
 		*		
 		* 	Returned value:
 		*	
@@ -167,7 +167,7 @@ namespace strEx
 		*
 		*	Parametres:
 		*
-		*		[in] strsrc:
+		*		[in] firstStr:
 		*			Source string to start from.
 		*
 		*	Note:
@@ -485,7 +485,7 @@ namespace strEx
 		);
 
 		/*
-		*	Ñonverts source string to uppercase.
+		*	Ñonverts source string to upper case.
 		*
 		*	Parametres:
 		*
@@ -502,7 +502,7 @@ namespace strEx
 		);
 
 		/*
-		*	Ñonverts source string to lowercase.
+		*	Ñonverts source string to lower case.
 		*
 		*	Parametres:
 		*
@@ -523,7 +523,7 @@ namespace strEx
 		*
 		*	Parametres:
 		*
-		*		[in] strsource:
+		*		[in] strsrc:
 		*			Source string.
 		*		[in] strReplaceable:
 		*			String that will be replaced.
