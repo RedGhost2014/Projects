@@ -1,37 +1,37 @@
 /*
 *****************************************************************
-*																*
-*	strEx.h														*
-*																*
-*	C/C++ String Extended Library made up by Fedrushkov Denis	*
-*																*
-*	Version: 1.0												*
-*																*
-*	This library was made as way to upgrade quality of life		*
-*	when using strings as char arrays in C/C++.					*
-*																*
+*                                                               *
+*   strEx.h                                                     *
+*                                                               *
+*   C/C++ String Extended Library made up by Fedrushkov Denis   *
+*                                                               *
+*   Version: 1.0												*
+*                                                               *
+*   This library was made as way to upgrade quality of life     *
+*   when using strings as char arrays in C/C++.                 *
+*                                                               *
 *****************************************************************
 
 
 *************************************************************************************
-*																					*
-*	Description and notes about library:											*
-*																					*
-*	This library uses exceptions as debug method in C++								*
-*	and asserts & errno.h as debug method in C.										*
-*	Library uses SAL annotations to to make her easier to understand and use		*
-*	and have integrated documentation about all functions.							*
-*																					*
-*	Provided exceptions type:														*
-*																					*
-*	Out of bounds - declared as MSG_EXCEPTION_INDEX_OUT_OF_BOUNDS					*
-*	Null-pointer - declared as MSG_EXCEPTION_NULL_POINTER							*
-*	Memory allocation - declared as MSG_EXCEPTION_OUT_OF_MEMORY						*
-*																					*
-*	P.S: Also this library was not completely unit-tested							*
-*	so you can leave unhandled errors to fix and tips for improvement library		*
-*	on https://github.com/RedGhost2014.												*
-*																					*
+*                                                                                   *
+*   Description and notes about library:                                            *
+*                                                                                   *
+*   This library uses exceptions as debug method in C++                             *
+*   and asserts & errno.h as debug method in C.                                     *
+*   Library uses SAL annotations to to make her easier to understand and use        *
+*   and have integrated documentation about all functions.                          *
+*                                                                                   *
+*   Provided exceptions type:                                                       *
+*                                                                                   *
+*   Out of bounds - declared as MSG_EXCEPTION_INDEX_OUT_OF_BOUNDS                   *
+*   Null-pointer - declared as MSG_EXCEPTION_NULL_POINTER                           *
+*   Memory allocation - declared as MSG_EXCEPTION_OUT_OF_MEMORY                     *
+*                                                                                   *
+*   P.S: Also this library was not completely unit-tested                           *
+*   so you can leave unhandled errors to fix and tips for improvement library       *
+*   on https://github.com/RedGhost2014.                                             *
+*                                                                                   *
 *************************************************************************************
 */
 

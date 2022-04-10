@@ -35,9 +35,9 @@
 	#define STREX_TYPE(_Type) _Type _cdecl 
 
 	#define STREX_THROW_EXCEPTION(_Type, _Text) \
-				_ASSERT_EXPR(0, _Text);			\
-				_set_errno(_Type);				\
-				return _Type					\
+				_ASSERT_EXPR(0, _Text);         \
+				_set_errno(_Type);              \
+				return _Type                    \
 
 	#define STREX_ALLOC(_Type, _Size) (_Type*)malloc(_Size * sizeof(_Type))
 	#define STREX_DEALLOC(_Arg) free(_Arg)
@@ -50,15 +50,15 @@
 
 #define STREX_BASE_ALLOC 128
 
-#define STREX_DEPRECATED_REASON(_reason, _alternative)			\
-STREX_DECLSPEC_DEPRICATED										\
-(																\
-	"This function declared as unrecommended. Reason: "			\
-	#_reason													\
-	" Consider using "											\
-	#_alternative												\
-	" instead. To disable deprecation, use STREX_NO_WARNINGS."	\
-)																\
+#define STREX_DEPRECATED_REASON(_reason, _alternative)          \
+STREX_DECLSPEC_DEPRICATED                                       \
+(                                                               \
+	"This function declared as unrecommended. Reason: "         \
+	#_reason                                                    \
+	" Consider using "                                          \
+	#_alternative                                               \
+	" instead. To disable deprecation, use STREX_NO_WARNINGS."  \
+)                                                               \
 
 
 #endif // !_STREX_DEF_
