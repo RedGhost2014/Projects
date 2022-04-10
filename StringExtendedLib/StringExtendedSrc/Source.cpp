@@ -19,50 +19,12 @@ int StringFunctionsTest();
 int main()
 {
 	StringFunctionsTest();
-
-	/*size_t size = 0;
-	char** mass = strSplitByToken("Hello!World and,another.world,  s !sad", "!,", &size);
-
-	for (size_t i = 0; i < size; i++)
-	{
-		printf("mass[%d] = %s\n", i, mass[i]);
-	}
-
-	for (size_t i = 0; i < size; i++)
-	{
-		STREX_DEALLOC(mass[i]);
-	}
-	STREX_DEALLOC(mass);*/
-	//strSplitByParser
-	//char* str = 
-	//char* str = StringExtended::();
-
-	/*size_t countOfSubstrings = 0;
-	char** array = StringExtended::strSplitByParser("ststrsr", "str", &countOfSubstrings);
-
-	for (int i = 0; i < countOfSubstrings; i++)
-	{
-		cout << "array[" << i << "] = " << array[i] << endl;
-	}
-
-	for (int i = 0; i < countOfSubstrings; i++)
-	{
-		STREX_DEALLOC(array[i]);
-	}
-	STREX_DEALLOC(array);
-
-	return 0;
-	const char* str = "Hello world";
-	cout << "Basic str = " << str << endl;
-	char* erasedStr = StringExtended::strErase("orl", str);
-
-
-	cout << "\nstrErase test = " << erasedStr << endl;*/
-
+	cout << "\n\n\nPress to test sorting functions" << endl;
+	system("pause");
+	StringSortTests();
 }
 
 #ifdef __cplusplus
-
 
 int StringFunctionsTest()
 {
@@ -207,6 +169,7 @@ int StringSortTests()
 		STREX_DEALLOC(strmass[i]);
 	}
 	STREX_DEALLOC(strmass);
+	system("pause");
 	return 0;
 }
 
