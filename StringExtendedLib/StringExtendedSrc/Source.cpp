@@ -1,6 +1,3 @@
-//#include <cstdio>
-//#include <cstdlib>
-//#include <iostream>
 //#define STREX_NO_WARNINGS
 #include "strEx.h"
 #include <stdio.h>
