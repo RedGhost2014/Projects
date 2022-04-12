@@ -556,7 +556,9 @@ namespace strEx
 		*	C:		returns error code and set errno value to error code.
 		*	CPP:	throws an exception.
 		* 
-		*	Note: if source string does not contain any numbers returns 0;
+		*	Note: 
+		*		If source string contain any numbers more that INT_MAX they will stay as INT_MAX. Same behavior with INT_MIN.
+		*		If source string does not contain any numbers returns 0.
 		*/
 		_Check_return_ STREX_DLLIMPORT STREX_TYPE(int*) strRetriveInt(
 			_In_z_ const char* strsrc,
