@@ -15,10 +15,23 @@ int StringFunctionsTest();
 
 int main()
 {
-	StringFunctionsTest();
-	cout << "\n\n\nPress to test sorting functions" << endl;
-	system("pause");
-	StringSortTests();
+	const char* str = "123 -456 asd 1--2-3asf 789";
+	size_t size = 0;
+	int* mass = StringExtended::strRetriveInt(str, &size);
+
+	for (int i = 0; i < size; i++)
+	{
+		cout << "mass[" << i << "] = " << mass[i] << endl;
+		//printf("mass[%d] = %d\n", i, mass[i]);
+	}
+
+	delete[] mass;
+	//free(mass);
+	return 0;
+	//StringFunctionsTest();
+	//cout << "\n\n\nPress to test sorting functions" << endl;
+	//system("pause");
+	//StringSortTests();
 }
 
 #ifdef __cplusplus

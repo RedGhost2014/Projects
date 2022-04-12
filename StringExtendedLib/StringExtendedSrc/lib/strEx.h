@@ -171,7 +171,7 @@ namespace strEx
 		*			Source string to start from.
 		*
 		*	Note:
-		*		To mark down end of concatinate use empty or only nullterminated string: "" or "\\0".
+		*		To mark down end of concatinate use empty or only null-terminated string: "" or "\\0".
 		*		Not using this will cause undefind behavior.
 		*
 		* 	Returned value:
@@ -519,7 +519,7 @@ namespace strEx
 		);
 
 		/*
-		*	Replace string A on string B in Source string.
+		*	Replaces string A on string B in Source string.
 		*
 		*	Parametres:
 		*
@@ -541,6 +541,27 @@ namespace strEx
 			_In_z_ const char* strReplaceOn
 		);
 
+		/*
+		*	Retrives all integer numbers from Source string.
+		*
+		*	Parametres:
+		*
+		*		[in] strsrc:
+		*			Source string.
+		*		[in] size:
+		*			Pointer to a variable that will get resulted count of integers.
+		* 
+		*	Returns a pointer to integers array in heap if execute was succesfull, else:
+		*
+		*	C:		returns error code and set errno value to error code.
+		*	CPP:	throws an exception.
+		* 
+		*	Note: if source string does not contain any numbers returns 0;
+		*/
+		_Check_return_ STREX_DLLIMPORT STREX_TYPE(int*) strRetriveInt(
+			_In_z_ const char* strsrc,
+			_Out_ size_t* countOfNumbers
+		);
 
 #ifdef __cplusplus
 	};
