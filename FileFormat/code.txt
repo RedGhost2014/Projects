@@ -1,0 +1,39 @@
+int main()
+{
+	char* str = strGetFile("code.txt");
+	char* strencoded = VigenereCypher(str, "Albert");
+	size_t size = 0;
+
+	size_t sizeofchunk = 0;
+	BYTE* chunk = createChunk("String", strencoded, &sizeofchunk);
+
+	size_t sizeoffile = 0;
+	BYTE* bytefile = getBinaryFile("123.png", &sizeoffile);
+
+	int ptrtofindinsertplace = findChunk(bytefile, sizeoffile, "sRGB", 1);
+
+	FILE* file = NULL;
+	fopen_s(&file, "test.png", "wb");
+
+	fwrite(bytefile, sizeof(BYTE), ptrtofindinsertplace, file);
+	fwrite(chunk, sizeof(BYTE), sizeofchunk, file);
+	for (int i = ptrtofindinsertplace; i < sizeoffile; i++)
+	{
+		BYTE* c = bytefile + i * sizeof(BYTE);
+		fwrite((BYTE*)c, sizeof(BYTE), 1, file);
+	}
+	fclose(file);
+
+	free(bytefile);
+
+	bytefile = getBinaryFile("test.png", &sizeoffile);
+	char* resultstr = getStringFromByte(bytefile, sizeoffile);
+	char* finalresult = VigenereCypherDecrypt(resultstr, "Albert");
+	printf("%s\n\n", finalresult);
+	free(resultstr);
+	free(finalresult);
+	free(bytefile);
+	free(chunk);
+	system("pause");
+	return 0;
+}
