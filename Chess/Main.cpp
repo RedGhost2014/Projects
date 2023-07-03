@@ -1,10 +1,16 @@
 //#include <Windows.h>
+//#include <synchapi.h>
 #include <iostream>
 #include <raylibcpp/include/raylib-cpp.hpp>
 #include "Application.h"
+//#include <Windows.h>
+#include <stdlib.h>
+//void __stdcall Sleep(unsigned long milliseconds);
 
 int main() 
 {
+    //_sleep(5000);
+    //Sleep(5);
     std::string appname = "Chess";
     size_t width = 1920;
     size_t height = 1080;
